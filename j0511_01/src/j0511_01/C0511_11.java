@@ -5,8 +5,9 @@ import java.util.Scanner;
 public class C0511_11 {
 
 	public static void main(String[] args) {
-		// 1.성적입력  2.성적출력  3.성적수정  4.등수처리  0.프로그램종료
 		Scanner scan = new Scanner(System.in);
+		// 1.성적입력  2.성적출력  3.성적수정  4.등수처리  0.프로그램종료
+		
 		int input=0; //번호선택변수
 		int count=0; //입력된 학생수
 		//성적입력 변수
