@@ -53,7 +53,6 @@ public class C0515_09 {
 			System.out.println();
 		}
 		System.out.println("---------------------------------------------");
-		System.out.println();
 		
 		//숫자 입력
 		System.out.println("숫자를 입력하세요.>>");
