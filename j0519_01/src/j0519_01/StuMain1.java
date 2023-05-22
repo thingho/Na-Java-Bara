@@ -3,10 +3,9 @@ package j0519_01;
 import java.util.Scanner;
 
 public class StuMain1 {
-
 	//main 메소드
 	public static void main(String[] args) {
-		// 
+		//
 		Scanner scan = new Scanner(System.in); //객체선언
 		Student[] s = new Student[10]; //배열선언
 		int choice = 0; //원하는 번호 입력하는 변수
@@ -112,9 +111,9 @@ public class StuMain1 {
 						System.out.println("-------------------------");
 						System.out.println("수정할 과목을 선택하세요.>>");
 					    choice = scan.nextInt();
-					    
+					   
 					    switch(choice) {
-					    
+					   
 					    case 1:
 					    	System.out.printf("[ 이전 국어점수 : %d ]\n",s[i].kor);
 					    	System.out.println("수정할 점수를 입력하세요.>>");
@@ -124,7 +123,7 @@ public class StuMain1 {
 					    	System.out.println("[ 국어점수 수정완료 ]");
 					    	System.out.println();
 					    	break;
-					    
+					   
 					    case 2:
 					    	System.out.printf("[ 이전 영어점수 : %d ]\n",s[i].eng);
 					    	System.out.println("수정할 점수를 입력하세요.>>");
@@ -144,7 +143,7 @@ public class StuMain1 {
 					    	System.out.println("[ 수학점수 수정완료 ]");
 					    	System.out.println();
 					    	break;
-					    
+					   
 					    }//switch
 					    chk = 1; //학생이 존재시 1로 변경
 					}//if
@@ -188,9 +187,23 @@ public class StuMain1 {
 					break; //switch
 				}
 				chk = 0;
+				//상단타이틀 출력
+				for(int j=0;j<Student.title.length;j++) {
+					System.out.print(Student.title[j]+"\t");
+				}
+				System.out.println();
+				System.out.println("---------------------------------------------------");
 				for(int i=0;i<count;i++) {
 					if(s[i].name.contains(searchName)) {
-						
+						//입력된 성적출력
+						System.out.print(s[i].name+"\t");
+						System.out.print(s[i].kor+"\t");
+						System.out.print(s[i].eng+"\t");
+						System.out.print(s[i].math+"\t");
+						System.out.print(s[i].total+"\t");
+						System.out.printf("%.2f \t",s[i].avg);
+						System.out.print(s[i].rank+"\n");
+						System.out.println();
 						chk = 1;
 					}
 				}//for
@@ -209,7 +222,6 @@ public class StuMain1 {
 			}//switch
 		}//while
 	}//main
-
 	//성적출력 메소드
 	//recordTitle
 	

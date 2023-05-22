@@ -28,7 +28,6 @@ public class Student {
 	int rank;
 	
 	void sum() {
-		kor=100;
 		total = kor+eng+math;
 	}
 	
