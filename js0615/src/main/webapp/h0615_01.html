@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>그래프</title>
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		<style>
+			*{margin:0; padding:0;}
+			button{width:120px; height:30px; text-align:center;}
+			div{width:900px; height:700px; margin:20px auto; border:2px solid black;}
+		</style>
+		<script>
+			function databtn(){
+				
+				//데이터를 변수에 넣기
+				let arr1 = new Array(); //배열선언
+				let arr2 = new Array();
+				let stuLabel = "학생성적표";
+				
+				$.ajax({
+					url:"js/data.json",
+					data:"",
+					dataType:"json",
+					type:"get",
+					success: function(data) {
+						alert("성공");
+						for(let i=0; i<data.lenght;i++){
+							arr1.pust(data[i].name);
+							arr2.pust(data[i].total);
+						} //for문
+						console.log(arr1);
+						console.log(arr2);
+						
+						//그래프 그리기
+						alert("그래프 그리기");
+						const ctx = document.getElementById('myChart');
+						
+						new Chart(ctx, {
+						    type: 'bar',
+						    data: {
+						      labels: arr1, //x축 -> arr1 이름
+						      datasets: [{
+						        label: stuLabel, //제목
+						        data: arr2, //y축 -> arr2 합계
+						        borderWidth: 1,
+						        backgroundColor: [
+						            'rgba(255, 99, 132, 0.2)',
+						            'rgba(255, 159, 64, 0.2)',
+						            'rgba(255, 205, 86, 0.2)',
+						            'rgba(75, 192, 192, 0.2)',
+						            'rgba(54, 162, 235, 0.2)'
+						          ],
+						          borderColor: [
+						            'rgb(255, 99, 132)',
+						            'rgb(255, 159, 64)',
+						            'rgb(255, 205, 86)',
+						            'rgb(75, 192, 192)',
+						            'rgb(54, 162, 235)'
+						          ],
+						      }]
+						    },
+						    options: {
+						      scales: {
+						        y: {
+						          beginAtZero: true
+						        }
+						      }
+						    }
+						  }); //
+						
+					},
+					error: function(){
+						alert("실패");
+					}
+				}); //ajax
+				
+			} //databtn
+			
+			
+			function chartbtn(){
+				
+			} //chartbtn
+			
+		</script>
+	</head>
+	<body>
+		<button onclick="databtn()">데이터 가져오기</button><br>
+		<button onclick="chartbtn()">그래프 그리기</button>
+		<br>
+		<br>
+		<div>
+  			<canvas id="myChart"></canvas>
+		</div>
+	
+	</body>
+</html>
