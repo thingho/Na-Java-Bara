@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>css,attr</title>
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script>
+			$(function(){
+				let count=1;
+				$("#btn").click(function(){
+					if(count>3){
+						count=1;
+					}
+					$("#i01").attr("src","images/min"+count+".jpg");
+					count++;	
+				});
+			});
+
+		</script>
+		<style>
+			div{width:300px; height:300px; overflow: hidden;}
+			img{width:350px; }
+		</style>
+	</head>
+	<body>
+		<button id="btn">이미지변경</button>
+		<div>
+			<img id="i01" src="images/min1.jpg">
+		</div>
+	</body>
+</html>
